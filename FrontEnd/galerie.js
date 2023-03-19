@@ -2,13 +2,13 @@ const gallerySection = document.querySelector(".gallery");
 const filterButtons = document.querySelectorAll(".filtersbuttons button");
 let galleryData = [];
 
-// récupération des informations deouis l'API
+// getting the informations from the API ( with fetch )
 async function fetchGalleryData() {
   const response = await fetch("http://localhost:5678/api/works");
   galleryData = await response.json();
 }
 
-// nettoyage de .gallery
+// Clear the content of .gallery
 function clearGallerySection() {
   gallerySection.innerHTML = "";
 }
@@ -34,7 +34,6 @@ function displayGalleryItems(items) {
 
 //get the id of the buttons so we can compare it in the filterGalleryItems functions, also add a class for active buttons and remove it to the non active ones
 function setupFilterButtons() {
-  // const filterButtons = document.querySelectorAll(".filtersbuttons button");
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       filterButtons.forEach((button) => button.classList.remove("buttonfilters-active"));
@@ -64,33 +63,32 @@ async function init() {
 
 init();
 
-//////////////si user logged in, nouveau display/////////////
+//////////////new display if user logged in/////////////
 
-//function crée le bandeau edit dans le header
+//function create the edit banner in the header
 function editmode() {
-  // Create the div element
+  // Create the elements
   var divElement = document.createElement("div");
-  var headerElement = document.querySelector("header");
-  var iconElement = document.createElement("i");
-  var spanElement = document.createElement("span");
-  // Add the "editmode" class to the div element
   divElement.classList.add("editmode");
-  // Create the span element
-  spanElement.textContent = "Mode édition";
+  var iconElement = document.createElement("i");
   iconElement.classList.add("fas", "fa-edit");
-  // Create the button element
+  var spanElement = document.createElement("span");
+  spanElement.textContent = "Mode édition";
+
+  var headerElement = document.querySelector("header");
+
   var buttonElement = document.createElement("button");
   buttonElement.textContent = "publier les changements";
 
-  // Append the span element and the button element to the div element
+  // Append the elements to the div
   spanElement.appendChild(iconElement);
   divElement.appendChild(spanElement);
   divElement.appendChild(buttonElement);
-  // Append the div element to the body element
+  // Append the div element to the header
   headerElement.appendChild(divElement);
 }
 
-// nouvelle disposition avec récuperation du token de login
+// new layout with login token
 let storedToken = sessionStorage.getItem("token");
 console.log(storedToken);
 if (storedToken !== "undefined" && storedToken !== null) {
@@ -109,7 +107,7 @@ if (storedToken !== "undefined" && storedToken !== null) {
   editGallery.style.display = "none";
 }
 
-// gestion comportement bouton edit
+// edit button behavior management
 const buttonEditGallery = document.querySelector(".editbuttonsgallery");
 const buttonCloseGallery = document.querySelector(".closeedit");
 function editgallery() {
@@ -148,14 +146,10 @@ function editgallery() {
 // creation de la mini gallery
 
 function creationMiniGalerie(galerie) {
-  // Récupération de l'élément du DOM qui accueillera les fiches
   const sectionFiches = document.querySelector(".gallerymini");
-  // Création d’une balise dédiée à la fiche d'une photo
   const pieceElement = document.createElement("figure");
-  // Création du bouton deleton dédié a l'image de la photo
   const deleteButton = document.createElement("button");
   deleteButton.classList.add(galerie.id);
-  // Création des balises
   const imageElement = document.createElement("img");
   imageElement.src = galerie.imageUrl;
   imageElement.classList.add(galerie.id);
@@ -164,23 +158,18 @@ function creationMiniGalerie(galerie) {
   const trash = document.createElement("span");
   trash.classList.add("fas", "fa-trash");
 
-  // On rattache la balise figure a la section Fiches qui est elle même attachée a la gallerie
   sectionFiches.appendChild(pieceElement);
-  // On rattache l’image à pieceElement (la balise figure)
   pieceElement.appendChild(imageElement);
   pieceElement.appendChild(nomElement);
-  // rattache bouton à l'image
   pieceElement.appendChild(deleteButton);
   deleteButton.appendChild(trash);
 }
 
-//ouverture et fermeture de la fenetre de mode d'edition
+// opening and closing the edit mode window
 buttonEditGallery.addEventListener("click", function (e) {
   editgallery();
   for (let i = 0; i < galleryData.length; i++) {
     creationMiniGalerie(galleryData[i]);
-    // const deletebutt = document.querySelector(".deleteimage");
-    // deletebutt.classList.add("deleteimage" + i);
   }
   const buttonCloseGallery = document.querySelector(".closeedit");
   buttonCloseGallery.addEventListener("click", function (e) {
@@ -206,7 +195,7 @@ buttonEditGallery.addEventListener("click", function (e) {
       var targetedCategory = buttonDelete.className;
       for (let i = 0; i < galleryData.length; i++) {
         const arrGalerie = galleryData[i];
-        // console.log(arrGalerie.id);
+
         if (arrGalerie.id == targetedCategory) {
           console.log("hello");
           fetch("http://localhost:5678/api/works/" + targetedCategory, {
