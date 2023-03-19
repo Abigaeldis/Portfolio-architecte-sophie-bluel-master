@@ -3,6 +3,7 @@ const errorLogin = document.createElement("span");
 errorLogin.classList.add("wrongid");
 const returnLine = document.createElement("br");
 
+// authentification of the user by taking the mail and password value and using fetch so we get back the login token
 async function authentification() {
   let user = {
     email: document.getElementById("mail").value,
@@ -34,15 +35,14 @@ async function authentification() {
 }
 
 ////////////Evenement click button "Se connecter/////////////////
-
-const loginButton = document.getElementById("login");
-loginButton.addEventListener("click", loginEvent);
-
 function loginEvent(e) {
   e.preventDefault();
   console.log("event");
   authentification();
 }
+
+const loginButton = document.getElementById("login");
+loginButton.addEventListener("click", loginEvent);
 
 //sophie.bluel@test.tld
 //S0phie
