@@ -34,7 +34,7 @@ function displayGalleryItems(items) {
 
 //get the id of the buttons so we can compare it in the filterGalleryItems functions, also add a class for active buttons and remove it to the non active ones
 function setupFilterButtons() {
-  const filterButtons = document.querySelectorAll(".filtersbuttons button");
+  // const filterButtons = document.querySelectorAll(".filtersbuttons button");
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       filterButtons.forEach((button) => button.classList.remove("buttonfilters-active"));
