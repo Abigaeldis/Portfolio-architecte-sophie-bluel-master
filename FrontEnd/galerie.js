@@ -147,7 +147,7 @@ function editGallery() {
 
 // creation de la mini gallery
 
-function creationMiniGalerie(galerie) {
+function creationFicheImage(galerie) {
   const sectionGallery = document.querySelector(".gallerymini");
   const fichePhoto = document.createElement("figure");
   const deleteButton = document.createElement("button");
@@ -171,7 +171,7 @@ function creationMiniGalerie(galerie) {
 buttonEditGallery.addEventListener("click", function (e) {
   editGallery();
   for (let i = 0; i < galleryData.length; i++) {
-    creationMiniGalerie(galleryData[i]);
+    creationFicheImage(galleryData[i]);
   }
   const buttonCloseGallery = document.querySelector(".closeedit");
   buttonCloseGallery.addEventListener("click", function (e) {
