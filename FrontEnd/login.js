@@ -23,7 +23,7 @@ async function authentification() {
   let storedToken = sessionStorage.getItem("token");
 
   if (storedToken != "undefined") {
-    window.location = "http://127.0.0.1:5500/FrontEnd/index.html";
+    window.location = "http://127.0.0.1:5500/index.html";
   } else {
     console.log("wrong id");
 
