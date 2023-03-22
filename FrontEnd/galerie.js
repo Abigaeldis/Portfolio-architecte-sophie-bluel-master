@@ -68,16 +68,16 @@ init();
 //function create the edit banner in the header
 function editmode() {
   // Create the elements
-  var divElement = document.createElement("div");
+  const divElement = document.createElement("div");
   divElement.classList.add("editmode");
-  var iconElement = document.createElement("i");
+  const iconElement = document.createElement("i");
   iconElement.classList.add("fas", "fa-edit");
-  var spanElement = document.createElement("span");
+  const spanElement = document.createElement("span");
   spanElement.textContent = "Mode édition";
 
-  var headerElement = document.querySelector("header");
+  const headerElement = document.querySelector("header");
 
-  var buttonElement = document.createElement("button");
+  const buttonElement = document.createElement("button");
   buttonElement.textContent = "publier les changements";
 
   // Append the elements to the div
@@ -96,7 +96,7 @@ if (storedToken !== "undefined" && storedToken !== null) {
   document.querySelector(".filters").innerHTML = "";
   console.log(editButtons);
   editmode();
-  for (var i = 0; i < editButtons.length; i++) {
+  for (let i = 0; i < editButtons.length; i++) {
     editButtons[i].style.display = "flex";
   }
 } else {
@@ -193,19 +193,19 @@ buttonEditGallery.addEventListener("click", function (e) {
     buttonDelete.addEventListener("click", function (e) {
       console.log(buttonDelete.className);
       var targetedCategory = buttonDelete.className;
-      for (let i = 0; i < galleryData.length; i++) {
-        const arrGalerie = galleryData[i];
+      // for (let i = 0; i < galleryData.length; i++) {
+      //   const arrGalerie = galleryData[i];
 
-        if (arrGalerie.id == targetedCategory) {
-          console.log("hello");
-          fetch("http://localhost:5678/api/works/" + targetedCategory, {
-            method: "DELETE",
-            headers: {
-              Authorization: "Bearer " + storedToken,
-            },
-          });
-        }
-      }
+      //   if (arrGalerie.id == targetedCategory) {
+      console.log("hello");
+      fetch("http://localhost:5678/api/works/" + targetedCategory, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + storedToken,
+        },
+      });
+      //   }
+      // }
     });
   });
 
