@@ -152,12 +152,12 @@ function editGallery() {
 function creationFicheImage(galerie) {
   const sectionGallery = document.querySelector(".gallerymini");
   const fichePhoto = document.createElement("figure");
-  fichePhoto.classList.add(galerie.id);
+  // fichePhoto.classList.add(galerie.id);
   const deleteButton = document.createElement("button");
   deleteButton.classList.add(galerie.id);
   const imageElement = document.createElement("img");
   imageElement.src = galerie.imageUrl;
-  imageElement.classList.add(galerie.id);
+  // imageElement.classList.add(galerie.id);
   const nomElement = document.createElement("figcaption");
   nomElement.innerText = "éditer";
   const trash = document.createElement("span");
@@ -209,12 +209,11 @@ function editWindow() {
       })
         .then((response) => {
           console.log(response);
-          const editGalleryDiv = document.querySelector(".editgallery");
+          const editDiv = document.querySelector(".editgallery");
           const galleryDiv = document.querySelector(".gallerydiv");
-          const photoDelete = document.getElementsByClassName(targetedCategory);
-          while (photoDelete[0]) {
-            photoDelete[0].parentNode.removeChild(photoDelete[0]);
-          }
+          editDiv.remove();
+          galleryDiv.remove();
+          init();
         })
         .catch((error) => console.error(error));
     });
