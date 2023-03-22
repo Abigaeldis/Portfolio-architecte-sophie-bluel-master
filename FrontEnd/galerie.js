@@ -110,7 +110,7 @@ if (storedToken !== "undefined" && storedToken !== null) {
 // edit button behavior management
 const buttonEditGallery = document.querySelector(".editbuttonsgallery");
 const buttonCloseGallery = document.querySelector(".closeedit");
-function editgallery() {
+function editGallery() {
   var divElement = document.createElement("div");
   var editWindow = document.createElement("div");
   var headerEdit = document.createElement("div");
@@ -167,7 +167,7 @@ function creationMiniGalerie(galerie) {
 
 // opening and closing the edit mode window
 buttonEditGallery.addEventListener("click", function (e) {
-  editgallery();
+  editGallery();
   for (let i = 0; i < galleryData.length; i++) {
     creationMiniGalerie(galleryData[i]);
   }
