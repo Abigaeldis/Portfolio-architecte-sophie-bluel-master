@@ -94,7 +94,7 @@ const editButtons = document.querySelector(".editbuttons");
 const buttonEditGallery = document.querySelector(".editbuttonsgallery");
 console.log(storedToken);
 if (storedToken !== "undefined" && storedToken !== null) {
-  // const editButtons = document.querySelectorAll(".editbuttons");
+  // var editButtons = document.querySelectorAll(".editbuttons");
   document.querySelector(".filters").innerHTML = "";
   console.log(editButtons);
   editmode();
@@ -103,22 +103,24 @@ if (storedToken !== "undefined" && storedToken !== null) {
   }
 } else {
   // const editButtons = document.querySelector(".editbuttons");
+
   console.log(editButtons);
+  buttonEditGallery.style.display = "none";
   editButtons.style.display = "none";
-  editGallery.style.display = "none";
 }
 
 // edit button behavior management
+
 const buttonCloseGallery = document.querySelector(".closeedit");
 function editGallery() {
-  const divElement = document.createElement("div");
-  const editWindow = document.createElement("div");
-  const headerEdit = document.createElement("div");
-  const buttonElement = document.createElement("button");
-  const titleElement = document.createElement("h2");
-  const galleryMini = document.createElement("div");
-  const buttonAdd = document.createElement("button");
-  const buttonSuppr = document.createElement("button");
+  var divElement = document.createElement("div");
+  var editWindow = document.createElement("div");
+  var headerEdit = document.createElement("div");
+  var buttonElement = document.createElement("button");
+  var titleElement = document.createElement("h2");
+  var galleryMini = document.createElement("div");
+  var buttonAdd = document.createElement("button");
+  var buttonSuppr = document.createElement("button");
 
   editWindow.classList.add("gallerydiv");
   divElement.classList.add("editgallery");
@@ -192,7 +194,7 @@ buttonEditGallery.addEventListener("click", function (e) {
   buttonDelete.forEach((buttonDelete) => {
     buttonDelete.addEventListener("click", function (e) {
       console.log(buttonDelete.className);
-      const targetedCategory = buttonDelete.className;
+      var targetedCategory = buttonDelete.className;
       // for (let i = 0; i < galleryData.length; i++) {
       //   const arrGalerie = galleryData[i];
 
