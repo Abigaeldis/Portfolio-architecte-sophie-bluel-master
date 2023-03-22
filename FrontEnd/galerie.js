@@ -146,8 +146,8 @@ function editgallery() {
 // creation de la mini gallery
 
 function creationMiniGalerie(galerie) {
-  const sectionFiches = document.querySelector(".gallerymini");
-  const pieceElement = document.createElement("figure");
+  const sectionGallery = document.querySelector(".gallerymini");
+  const fichePhoto = document.createElement("figure");
   const deleteButton = document.createElement("button");
   deleteButton.classList.add(galerie.id);
   const imageElement = document.createElement("img");
@@ -158,10 +158,10 @@ function creationMiniGalerie(galerie) {
   const trash = document.createElement("span");
   trash.classList.add("fas", "fa-trash");
 
-  sectionFiches.appendChild(pieceElement);
-  pieceElement.appendChild(imageElement);
-  pieceElement.appendChild(nomElement);
-  pieceElement.appendChild(deleteButton);
+  sectionGallery.appendChild(fichePhoto);
+  fichePhoto.appendChild(imageElement);
+  fichePhoto.appendChild(nomElement);
+  fichePhoto.appendChild(deleteButton);
   deleteButton.appendChild(trash);
 }
 
