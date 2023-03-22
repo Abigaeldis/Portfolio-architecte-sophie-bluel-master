@@ -232,6 +232,7 @@ function editWindow() {
 function createForm() {
   const galleryDiv = document.querySelector(".gallerydiv");
   const backArrow = document.createElement("button");
+  backArrow.classList.add("backarrow");
   backArrow.innerHTML = "<span class='fa-sharp fa-solid fa-arrow-left'></span>";
   const addTitle = document.createElement("h2");
   addTitle.innerText = "Ajout photo";
