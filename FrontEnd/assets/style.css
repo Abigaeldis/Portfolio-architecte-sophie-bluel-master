@@ -396,7 +396,7 @@ footer {
   justify-content: center;
 }
 
-input[type="email"],
+input[type="password"],
 input[type="text"] {
   width: 379px;
   height: 51px;
@@ -405,7 +405,7 @@ input[type="text"] {
   border: none;
 }
 
-.login input[type="email"],
+.login input[type="password"],
 input[type="text"] {
   margin-bottom: 30px;
 }
