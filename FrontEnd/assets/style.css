@@ -277,7 +277,7 @@ nav ul {
   margin-right: 5px;
 }
 
-/* gestion des filtres */
+/* gestion filters */
 .filters {
   display: flex;
   margin-top: 46px;
@@ -375,7 +375,7 @@ footer {
   padding-right: 107px;
 }
 
-/* css pour log in */
+/* css for log in */
 
 .hlogin {
   display: flex;
@@ -426,7 +426,7 @@ input[type="text"] {
   justify-content: flex-start;
 }
 
-/* gestion de la fenetre edit*/
+/* gestion edit window*/
 
 .editgallery {
   position: fixed;
