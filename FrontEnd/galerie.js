@@ -20,6 +20,8 @@ function createGalleryItem(item) {
   imageElement.src = item.imageUrl;
   const nameElement = document.createElement("figcaption");
   nameElement.innerText = item.title;
+  galleryItem.classList.add(item.id);
+  // galleryItem.setAttribute("id", item.id);
   galleryItem.appendChild(imageElement);
   galleryItem.appendChild(nameElement);
   gallerySection.appendChild(galleryItem);
@@ -150,6 +152,7 @@ function editGallery() {
 function creationFicheImage(galerie) {
   const sectionGallery = document.querySelector(".gallerymini");
   const fichePhoto = document.createElement("figure");
+  fichePhoto.classList.add(galerie.id);
   const deleteButton = document.createElement("button");
   deleteButton.classList.add(galerie.id);
   const imageElement = document.createElement("img");
@@ -203,7 +206,17 @@ function editWindow() {
         headers: {
           Authorization: "Bearer " + storedToken,
         },
-      });
+      })
+        .then((response) => {
+          console.log(response);
+          const editGalleryDiv = document.querySelector(".editgallery");
+          const galleryDiv = document.querySelector(".gallerydiv");
+          const photoDelete = document.getElementsByClassName(targetedCategory);
+          while (photoDelete[0]) {
+            photoDelete[0].parentNode.removeChild(photoDelete[0]);
+          }
+        })
+        .catch((error) => console.error(error));
     });
   });
 
@@ -360,7 +373,14 @@ function createForm() {
         Authorization: "Bearer " + storedToken,
       },
       body: formData,
-    });
+    })
+      .then((response) => {
+        const editDiv = document.querySelector(".editgallery");
+        galleryDiv.remove();
+        editDiv.remove();
+        init();
+      })
+      .catch((error) => console.error(error));
   });
 }
 
