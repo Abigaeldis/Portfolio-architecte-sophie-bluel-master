@@ -93,7 +93,7 @@ let storedToken = sessionStorage.getItem("token");
 const editButtons = document.querySelector(".editbuttons");
 console.log(storedToken);
 if (storedToken !== "undefined" && storedToken !== null) {
-  // var editButtons = document.querySelectorAll(".editbuttons");
+  // const editButtons = document.querySelectorAll(".editbuttons");
   document.querySelector(".filters").innerHTML = "";
   console.log(editButtons);
   editmode();
@@ -112,14 +112,14 @@ if (storedToken !== "undefined" && storedToken !== null) {
 const buttonEditGallery = document.querySelector(".editbuttonsgallery");
 const buttonCloseGallery = document.querySelector(".closeedit");
 function editGallery() {
-  var divElement = document.createElement("div");
-  var editWindow = document.createElement("div");
-  var headerEdit = document.createElement("div");
-  var buttonElement = document.createElement("button");
-  var titleElement = document.createElement("h2");
-  var galleryMini = document.createElement("div");
-  var buttonAdd = document.createElement("button");
-  var buttonSuppr = document.createElement("button");
+  const divElement = document.createElement("div");
+  const editWindow = document.createElement("div");
+  const headerEdit = document.createElement("div");
+  const buttonElement = document.createElement("button");
+  const titleElement = document.createElement("h2");
+  const galleryMini = document.createElement("div");
+  const buttonAdd = document.createElement("button");
+  const buttonSuppr = document.createElement("button");
 
   editWindow.classList.add("gallerydiv");
   divElement.classList.add("editgallery");
@@ -193,7 +193,7 @@ buttonEditGallery.addEventListener("click", function (e) {
   buttonDelete.forEach((buttonDelete) => {
     buttonDelete.addEventListener("click", function (e) {
       console.log(buttonDelete.className);
-      var targetedCategory = buttonDelete.className;
+      const targetedCategory = buttonDelete.className;
       // for (let i = 0; i < galleryData.length; i++) {
       //   const arrGalerie = galleryData[i];
 
