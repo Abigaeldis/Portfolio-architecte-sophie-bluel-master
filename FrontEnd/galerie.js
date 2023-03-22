@@ -168,7 +168,8 @@ function creationFicheImage(galerie) {
 }
 
 // opening and closing the edit mode window
-buttonEditGallery.addEventListener("click", function (e) {
+
+function editWindow() {
   editGallery();
   for (let i = 0; i < galleryData.length; i++) {
     creationFicheImage(galleryData[i]);
@@ -213,10 +214,9 @@ buttonEditGallery.addEventListener("click", function (e) {
     document.querySelector(".gallerydiv").innerHTML = "";
     createForm();
   });
-});
+}
 
 // create form add image function
-
 function createForm() {
   const galleryDiv = document.querySelector(".gallerydiv");
   const backArrow = document.createElement("button");
@@ -232,11 +232,10 @@ function createForm() {
   // back arrow behaviour
   backArrow.addEventListener("click", (e) => {
     console.log("back");
-    document.querySelector(".gallerydiv").innerHTML = "";
-    editGallery();
-    for (let i = 0; i < galleryData.length; i++) {
-      creationFicheImage(galleryData[i]);
-    }
+    const editDiv = document.querySelector(".editgallery");
+    galleryDiv.remove();
+    editDiv.remove();
+    editWindow();
   });
 
   // create label and input for uploading image
@@ -364,6 +363,11 @@ function createForm() {
     });
   });
 }
+
+// open the editWindow when the button "modifier" is clicked
+buttonEditGallery.addEventListener("click", function (e) {
+  editWindow();
+});
 
 // closing the editmode version of the website
 const finishEdit = document.querySelector(".editmode button");
