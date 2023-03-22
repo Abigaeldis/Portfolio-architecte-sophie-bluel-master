@@ -91,6 +91,7 @@ function editmode() {
 // new layout with login token
 let storedToken = sessionStorage.getItem("token");
 const editButtons = document.querySelector(".editbuttons");
+const buttonEditGallery = document.querySelector(".editbuttonsgallery");
 console.log(storedToken);
 if (storedToken !== "undefined" && storedToken !== null) {
   // const editButtons = document.querySelectorAll(".editbuttons");
@@ -102,14 +103,12 @@ if (storedToken !== "undefined" && storedToken !== null) {
   }
 } else {
   // const editButtons = document.querySelector(".editbuttons");
-  const editGallery = document.querySelector(".editbuttonsgallery");
   console.log(editButtons);
   editButtons.style.display = "none";
   editGallery.style.display = "none";
 }
 
 // edit button behavior management
-const buttonEditGallery = document.querySelector(".editbuttonsgallery");
 const buttonCloseGallery = document.querySelector(".closeedit");
 function editGallery() {
   const divElement = document.createElement("div");
