@@ -90,9 +90,10 @@ function editmode() {
 
 // new layout with login token
 let storedToken = sessionStorage.getItem("token");
+const editButtons = document.querySelector(".editbuttons");
 console.log(storedToken);
 if (storedToken !== "undefined" && storedToken !== null) {
-  var editButtons = document.querySelectorAll(".editbuttons");
+  // var editButtons = document.querySelectorAll(".editbuttons");
   document.querySelector(".filters").innerHTML = "";
   console.log(editButtons);
   editmode();
@@ -100,7 +101,7 @@ if (storedToken !== "undefined" && storedToken !== null) {
     editButtons[i].style.display = "flex";
   }
 } else {
-  const editButtons = document.querySelector(".editbuttons");
+  // const editButtons = document.querySelector(".editbuttons");
   const editGallery = document.querySelector(".editbuttonsgallery");
   console.log(editButtons);
   editButtons.style.display = "none";
