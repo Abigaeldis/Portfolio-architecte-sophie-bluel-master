@@ -195,10 +195,7 @@ buttonEditGallery.addEventListener("click", function (e) {
     buttonDelete.addEventListener("click", function (e) {
       console.log(buttonDelete.className);
       var targetedCategory = buttonDelete.className;
-      // for (let i = 0; i < galleryData.length; i++) {
-      //   const arrGalerie = galleryData[i];
 
-      //   if (arrGalerie.id == targetedCategory) {
       console.log("hello");
       fetch("http://localhost:5678/api/works/" + targetedCategory, {
         method: "DELETE",
@@ -206,8 +203,6 @@ buttonEditGallery.addEventListener("click", function (e) {
           Authorization: "Bearer " + storedToken,
         },
       });
-      //   }
-      // }
     });
   });
 
@@ -224,13 +219,25 @@ buttonEditGallery.addEventListener("click", function (e) {
 
 function createForm() {
   const galleryDiv = document.querySelector(".gallerydiv");
-
+  const backArrow = document.createElement("button");
+  backArrow.innerHTML = "<span class='fa-sharp fa-solid fa-arrow-left'></span>";
   const addTitle = document.createElement("h2");
   addTitle.innerText = "Ajout photo";
+  galleryDiv.appendChild(backArrow);
   galleryDiv.appendChild(addTitle);
 
   const form = document.createElement("form");
   form.id = "myForm";
+
+  // back arrow behaviour
+  backArrow.addEventListener("click", (e) => {
+    console.log("back");
+    document.querySelector(".gallerydiv").innerHTML = "";
+    editGallery();
+    for (let i = 0; i < galleryData.length; i++) {
+      creationFicheImage(galleryData[i]);
+    }
+  });
 
   // create label and input for uploading image
   const imageLabel = document.createElement("label");
