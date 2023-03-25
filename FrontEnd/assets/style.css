@@ -377,7 +377,7 @@ footer {
 
 /* css for log in */
 
-main div {
+.formcontainer {
   display: flex;
   justify-content: center;
   flex-direction: column;
