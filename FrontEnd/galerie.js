@@ -1,5 +1,6 @@
 const gallerySection = document.querySelector(".gallery");
 const filterButtons = document.querySelectorAll(".filtersbuttons button");
+const loginButton = document.getElementById("login");
 let galleryData = [];
 
 // getting the informations from the API ( with fetch )
@@ -81,6 +82,8 @@ function editmode() {
 
   const buttonElement = document.createElement("button");
   buttonElement.textContent = "publier les changements";
+
+  loginButton.innerText = "logout";
 
   // Append the elements to the div
   spanElement.appendChild(iconElement);
@@ -396,6 +399,15 @@ buttonEditGallery.addEventListener("click", function (e) {
 // closing the editmode version of the website
 const finishEdit = document.querySelector(".editmode button");
 finishEdit.addEventListener("click", function (event) {
+  console.log("finish");
+  sessionStorage.removeItem("token");
+  location.reload();
+});
+
+// closing the editmode version of the website with logout
+
+loginButton.addEventListener("click", function (event) {
+  event.preventDefault();
   console.log("finish");
   sessionStorage.removeItem("token");
   location.reload();
