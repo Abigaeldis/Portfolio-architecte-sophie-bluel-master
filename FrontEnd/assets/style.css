@@ -377,21 +377,28 @@ footer {
 
 /* css for log in */
 
-.hlogin {
+main div {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+.hlogin {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: auto;
   margin-top: 20%;
   margin-bottom: 30px;
 }
-.login {
+.loginform {
   display: flex;
+  position: relative;
   flex-direction: column;
   margin: auto;
-  width: 30%;
   margin-bottom: 300px;
 }
 
-.login label {
+.loginform label {
   display: flex;
   justify-content: center;
 }
@@ -405,23 +412,23 @@ input[type="text"] {
   border: none;
 }
 
-.login input[type="password"],
+.loginform input[type="password"],
 input[type="text"] {
   margin-bottom: 30px;
 }
-.login input[type="submit"] {
+.loginform input[type="submit"] {
   width: 179px;
   height: 36px;
   font-size: 14px;
   margin-top: 5px;
 }
 
-.login a {
+.loginform a {
   display: flex;
   justify-content: center;
 }
 
-.login label {
+.loginform label {
   display: flex;
   justify-content: flex-start;
 }
