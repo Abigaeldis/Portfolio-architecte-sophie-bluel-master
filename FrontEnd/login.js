@@ -1,4 +1,4 @@
-const form = document.querySelector(".login");
+const form = document.querySelector(".loginform");
 const errorLogin = document.createElement("span");
 errorLogin.classList.add("wrongid");
 const returnLine = document.createElement("br");
