@@ -430,15 +430,12 @@ input[type="text"] {
 
 .editgallery {
   position: fixed;
-  display: flex;
+  display: inline-flex;
   background-color: rgba(0, 0, 0, 0.65);
   width: 100%;
   min-height: 100%;
   top: 0;
   left: 0;
-  z-index: 12;
-  align-items: center;
-  justify-content: center;
 }
 
 .gallerydiv {
@@ -448,11 +445,8 @@ input[type="text"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, 0);
-  top: 35%;
-  z-index: 12;
+  position: relative;
+  margin: auto;
 }
 
 .gallerydiv h2 {

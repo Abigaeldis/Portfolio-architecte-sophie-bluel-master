@@ -138,7 +138,7 @@ function editGallery() {
   buttonSuppr.textContent = "Supprimer la galerie";
 
   document.body.appendChild(divElement);
-  document.body.appendChild(editWindow);
+  divElement.appendChild(editWindow);
   editWindow.appendChild(headerEdit);
   headerEdit.appendChild(buttonElement);
   editWindow.appendChild(titleElement);
@@ -187,10 +187,14 @@ function editWindow() {
 
   const outModale = document.querySelector(".editgallery");
   outModale.addEventListener("click", function (e) {
-    const editGalleryDiv = document.querySelector(".editgallery");
-    const galleryDiv = document.querySelector(".gallerydiv");
-    editGalleryDiv.remove();
-    galleryDiv.remove();
+    if (e.target === outModale) {
+      const galleryDiv = document.querySelector(".gallerydiv");
+      if (!e.target.closest(".gallerydiv")) {
+        // Clicked element or its ancestor is not galleryDiv or any of its children
+        outModale.remove();
+        console.log("removed ?");
+      }
+    }
   });
 
   // remove picture
